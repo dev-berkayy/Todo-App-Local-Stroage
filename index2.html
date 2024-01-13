@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        nav {
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+        }
+
+        nav a {
+            padding-top: 5px;
+            font-size: 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 200px;
+            height: 35px;
+            padding-top: 5px;
+            text-align: center;
+            color: rgb(25, 25, 25);
+            background-color: rgb(190, 190, 190);
+        }
+
+        .active {
+            color: rgb(136, 136, 136);
+            background-color: rgb(49, 49, 49);
+        }
+
+
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 80%;
+            gap: 30px;
+            margin: auto;
+        }
+
+        .content {
+            color: #042623;
+            width: 40%;
+            height: auto;
+            min-height: 330px;
+            border-radius: 5px;
+            border: 3px solid rgb(49, 49, 49);
+            font-size: 15px;
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 20px;
+        }
+
+        li {
+            padding-top: 10px;
+            border-radius: 5px;
+            border: 3px solid rgb(49, 49, 49);
+            min-height: 100px;
+            list-style-type: none;
+            font-size: 29px;
+            width: 90%;
+            margin: auto;
+            position: relative;
+            margin-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        li:first-child {
+            color: rgb(255, 77, 0);
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-top: 10px;
+            width: 70%;
+            min-height: 50px;
+            font-size: 20px;
+            margin: auto;
+            border: 2px solid rgb(40, 23, 16);
+            border-radius: 10px;
+            color: rgb(111, 65, 51);
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: underline;
+        }
+
+        p.disabled {
+            display: none;
+        }
+
+        span {
+            margin-right: 4px;
+            float: right;
+            font-size: 25px;
+            color: rgb(120, 127, 84);
+            text-align: center;
+            right: 0;
+            position: absolute;
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+            margin-top: 10px;
+            top: -2px;
+        }
+
+        span:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .okey {
+            float: right;
+            margin-top: 80px;
+            margin-right: 5px;
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+            color: rgb(120, 127, 84);
+            position: absolute;
+            right: 0;
+            bottom: 3px;
+            padding-top: 1px;
+        }
+
+        .okey:hover {
+            background-color: rgb(12, 188, 12);
+            color: #fff;
+        }
+
+        #done .okey {
+            display: none;
+        }
+
+        @media screen and (max-width:1280px) {
+            .container {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .content {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="index2.html" class="active">TODOS</a>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <h1 class="titles" id="todoTitle">TO DO</h1>
+        </div>
+        <div class="content">
+            <h1 class="titles" id="progress">IN PROGRESS</h1>
+        </div>
+        <div class="content">
+            <h1 class="titles" id="done">DONE</h1>
+        </div>
+    </div>
+
+    <script>
+
+
+
+        let todos = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []
+        let todoTitle = document.querySelector("#todoTitle");
+        let progress = document.querySelector("#progress")
+        let done = document.querySelector("#done")
+
+
+
+        todos.forEach((todo) => {
+
+            if (todo.status == "todo") {
+                todoTitle.appendChild(parseItem(todo))
+            }
+            if (todo.status == "progress") {
+                progress.appendChild(parseItem(todo))
+            }
+            if (todo.status == "done") {
+                done.appendChild(parseItem(todo))
+            }
+
+        });
+
+        function parseItem(todo) {
+            let div = document.createElement("div");
+            let li = document.createElement("li");
+            let span = document.createElement("span")
+            let tick = document.createElement("tick")
+            let p = document.createElement("p")
+            p.textContent = todo.içerik
+            p.classList.add("disabled")
+            tick.classList.add("okey")
+            div.appendChild(li)
+            li.textContent = todo.title
+            li.appendChild(p)
+            li.appendChild(tick)
+            li.appendChild(span)
+            span.innerText = "x";
+            tick.innerText = "+";
+
+
+            span.addEventListener("click", function () {
+                todos = todos.filter(t => t.id !== todo.id)
+                localStorage.setItem("todos", JSON.stringify(todos))
+                li.remove()
+            })
+
+
+            tick.addEventListener("click", function () {
+
+                if (todo.status == "todo") {
+                    progress.appendChild(li)
+                    todo.status = "progress"
+                    console.log(todos)
+                    localStorage.setItem("todos", JSON.stringify(todos))
+
+                }
+                else if (todo.status == "progress") {
+                    done.appendChild(li)
+                    todo.status = "done"
+                    console.log(todos)
+                    localStorage.setItem("todos", JSON.stringify(todos))
+                }
+
+            })
+
+
+            li.addEventListener("click", function (e) {
+
+                const p = li.querySelector("p")
+                if (p.className === "disabled") {
+                    p.classList.remove("disabled");
+                } else {
+                    p.classList.add("disabled")
+                }
+
+
+            })
+            return div
+        }
+
+
+    </script>
+</body>
+
+
+</html>

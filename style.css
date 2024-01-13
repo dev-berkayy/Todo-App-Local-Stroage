@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+nav a {
+    padding-top: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 200px;
+    height: 35px;
+    padding-top: 5px;
+    text-align: center;
+    color: rgb(25, 25, 25);
+    background-color: rgb(190, 190, 190);
+}
+
+.active {
+    color: rgb(136, 136, 136);
+    background-color: rgb(49, 49, 49);
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 45%;
+    margin-top: 40px;
+    gap: 20px;
+}
+
+.input {
+    padding-left: 10px;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 20px;
+    border: 2px solid black;
+    min-width: 300px;
+}
+
+.content {
+    min-width: 300px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    height: 260px;
+    background-color: rgb(202, 202, 202);
+    color: black;
+    font-size: 40px;
+}
+
+.btn2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    color: rgb(229, 229, 229);
+    width: 450px;
+    transition: 0.4s;
+    letter-spacing: 4px;
+    font-size: 50px;
+    border-radius: 15px;
+    padding: 5px;
+    cursor: pointer;
+    margin-top: 100px;
+    border-radius: 15px;
+    border: 2px solid #161612;
+    background-color: #042623;
+}
+
+.btn2:hover {
+    box-shadow: inset 300px 0 0 50px rgb(69, 85, 100);
+    color: rgb(168, 168, 168);
+    animation: move;
+    position: relative;
+    animation-duration: 10s;
+    animation-direction: reverse;
+    cursor: pointer;
+
+}
+
+
+.btn2 i {
+    font-size: 70px;
+}
+
+h4 {
+    color: rgb(6, 51, 51);
+    font-size: 50px;
+    margin: auto;
+    margin-top: 50px;
+    word-spacing: 15px;
+}
