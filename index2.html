@@ -50,19 +50,17 @@
 
         .container {
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-wrap: wrap;
-            width: 80%;
-            gap: 30px;
-            margin: auto;
+            width: 100%;
+            justify-content: center;
+            gap: 35px;
         }
 
         .content {
             color: #042623;
-            width: 40%;
+            width: 29%;
             height: auto;
-            min-height: 330px;
+            min-height: 600px;
             border-radius: 5px;
             border: 3px solid rgb(49, 49, 49);
             font-size: 15px;
@@ -156,11 +154,14 @@
         @media screen and (max-width:1280px) {
             .container {
                 display: flex;
-                flex-direction: column;
+                justify-content: center;
+
             }
 
             .content {
-                width: 80%;
+                width: 70%;
+                height: auto;
+                min-height: 300px;
             }
         }
     </style>

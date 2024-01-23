@@ -19,8 +19,6 @@ submit.addEventListener("click", function () {
 
     if (input.value === "") {
         alert("YOU MUST  ADD SOMETHİNK")
-    } else {
-        alert("Congratulations Sent")
     }
 
     let todo = {
