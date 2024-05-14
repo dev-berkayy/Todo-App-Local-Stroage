@@ -17,8 +17,9 @@ if (localStorage.getItem("todos")) {
 
 submit.addEventListener("click", function () {
 
-    if (input.value === "") {
+    if (input.value === "" || content.value === "") {
         alert("YOU MUST  ADD SOMETHİNK")
+        return;
     }
 
     let todo = {

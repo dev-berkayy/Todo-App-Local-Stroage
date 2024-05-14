@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: rgb(220, 220, 218);
 }
 
 section {
@@ -45,6 +45,7 @@ nav a {
     flex-direction: column;
     margin: auto;
     width: 45%;
+    min-width: 450px;
     margin-top: 40px;
     gap: 20px;
 }

@@ -46,25 +46,24 @@
             background-color: rgb(49, 49, 49);
         }
 
-
-
         .container {
             display: flex;
+            justify-content: center;
             flex-wrap: wrap;
             width: 100%;
-            justify-content: center;
             gap: 35px;
+            padding-bottom: 40px;
         }
 
         .content {
             color: #042623;
             width: 29%;
-            height: auto;
-            min-height: 600px;
             border-radius: 5px;
             border: 3px solid rgb(49, 49, 49);
             font-size: 15px;
             text-align: center;
+            height: 80vh;
+            overflow: auto;
             padding-top: 15px;
             padding-bottom: 20px;
         }
@@ -86,6 +85,7 @@
         li:first-child {
             color: rgb(255, 77, 0);
             margin-bottom: 10px;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         p {
@@ -96,7 +96,7 @@
             margin: auto;
             border: 2px solid rgb(40, 23, 16);
             border-radius: 10px;
-            color: rgb(111, 65, 51);
+            color: rgb(0, 0, 0);
             margin-top: 10px;
             display: flex;
             justify-content: center;
@@ -111,57 +111,65 @@
         span {
             margin-right: 4px;
             float: right;
-            font-size: 25px;
-            color: rgb(120, 127, 84);
+            font-size: 24px;
+            padding-top: 1px;
+            color: rgb(255, 255, 255);
             text-align: center;
             right: 0;
             position: absolute;
             border-radius: 50%;
-            height: 35px;
-            width: 35px;
+            height: 33px;
+            width: 33px;
             margin-top: 10px;
             top: -2px;
+            background-color: red;
+            cursor: pointer;
+            transition: 0.1s;
         }
 
         span:hover {
-            background-color: red;
-            color: white;
+            box-shadow: 0 0 7px 2px red;
+
         }
 
         .okey {
             float: right;
             margin-top: 80px;
-            margin-right: 5px;
+            margin-right: 4px;
             border-radius: 50%;
-            height: 35px;
-            width: 35px;
-            color: rgb(120, 127, 84);
+            height: 33px;
+            width: 33px;
+            color: rgb(255, 255, 255);
             position: absolute;
             right: 0;
             bottom: 3px;
             padding-top: 1px;
+            cursor: pointer;
+            background-color: rgb(12, 188, 12);
+            transition: 0.1s;
         }
 
         .okey:hover {
-            background-color: rgb(12, 188, 12);
-            color: #fff;
+            box-shadow: 0 0 8px 1px green;
         }
 
         #done .okey {
             display: none;
         }
 
-        @media screen and (max-width:1280px) {
-            .container {
-                display: flex;
-                justify-content: center;
 
+
+        @media screen and (max-width : 1500px) {
+
+            .content {
+                width: 40%;
             }
+        }
+
+        @media screen and (max-width : 1100px) {
 
             .content {
                 width: 70%;
-                height: auto;
-                min-height: 300px;
             }
         }
     </style>
@@ -218,7 +226,7 @@
             let tick = document.createElement("tick")
             let p = document.createElement("p")
             p.textContent = todo.içerik
-            p.classList.add("disabled")
+            p.classList.add()
             tick.classList.add("okey")
             div.appendChild(li)
             li.textContent = todo.title
